@@ -53,7 +53,8 @@ class Umami:
     def send(self, payload: UmamiPayload):
         data = {"type": "event", "payload": payload.dict()}
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        }
         print(f"Tracking data: \n {data}")
         return requests.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
 
@@ -61,23 +62,13 @@ class Umami:
         website_id = self.options.website_id
 
         if isinstance(event, str):
-            payload = UmamiPayload(
-                website=website_id,
-                data={"name": str(event)}
-            )
+            payload = UmamiPayload(website=website_id, data={"name": str(event)})
             if event_data:
                 payload.data = event_data
 
-            return self.send(
-                payload=payload
-            )
+            return self.send(payload=payload)
 
-        return self.send(
-            payload=UmamiPayload(
-                website=website_id,
-                data=event
-            )
-        )
+        return self.send(payload=UmamiPayload(website=website_id, data=event))
 
 
 umami = Umami(options=UmamiConfig(host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
