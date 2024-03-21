@@ -1,0 +1,11 @@
+*.sqlite3
+*.db
+
+.coverage
+coverage.xml
+
+venv
+venv/
+
+.idea
+.idea/
