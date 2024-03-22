@@ -50,8 +50,7 @@ classifiers = [
 ]
 
 dynamic = [
-    "version",
-    "license"
+    "version"
 ]
 
 dependencies = [

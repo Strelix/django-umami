@@ -10,5 +10,11 @@ venv/
 .idea
 .idea/
 
+# distribution
+
 .dist
 .dist/
+dist
+dist/
+
+*.egg-info
