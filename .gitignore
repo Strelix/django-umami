@@ -18,3 +18,5 @@ dist
 dist/
 
 *.egg-info
+django_umami.egg-info
+django_umami.egg-info/
