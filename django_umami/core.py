@@ -51,7 +51,15 @@ class UmamiPayload:
 class Umami:
     options: UmamiConfig
 
+    def check_website_settings(self):
+        if not self.options.host_url or not self.options.website_id:
+            return UmamiResponse(False, "You must set the UMAMI_PAGE_URL and UMAMI_WEBSITE_ID variables in django settings.")
+        return True
+
     def send(self, payload: UmamiPayload):
+        if isinstance((valid_settings := self.check_website_settings()), UmamiResponse):
+            return valid_settings
+
         data = {"type": "event", "payload": payload.dict()}
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
