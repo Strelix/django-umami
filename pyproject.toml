@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-ummai"
-version = "0.0.3"
+version = "0.0.4"
 description = ""
 authors = ["TreyWW"]
 #readme = "README.md"
@@ -65,7 +65,7 @@ Homepage = "https://github.com/TreyWW/django-umami"
 Issues = "https://github.com/TreyWW/django-umami/issues"
 
 [tool.bumpversion]
-current_version = "0.0.3"
+current_version = "0.0.4"
 commit = true
 commit_args = "-s"
 tag = true
