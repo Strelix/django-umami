@@ -53,6 +53,9 @@ class Umami:
 
     def check_website_settings(self):
         if not self.options.host_url or not self.options.website_id:
+            print(
+                "Failed to send event to umami. Please set both UMAMI_PAGE_URL and UMAMI_WEBSITE_ID vars.", flush=True
+            )
             return UmamiResponse(
                 False, "You must set the UMAMI_PAGE_URL and UMAMI_WEBSITE_ID variables in django settings."
             )
@@ -84,12 +87,8 @@ class Umami:
             return UmamiResponse(success=False, message="Invalid event data")
 
 
-try:
-    MAIN_PAGE_URL = get_setting("UMAMI_PAGE_URL", "")
-    MAIN_WEBSITE_ID = get_setting("UMAMI_WEBSITE_ID", "")
-except AttributeError:
-    MAIN_PAGE_URL = None
-    MAIN_WEBSITE_ID = None
+MAIN_PAGE_URL = get_setting("UMAMI_PAGE_URL", "")
+MAIN_WEBSITE_ID = get_setting("UMAMI_WEBSITE_ID", "")
 
 umami = Umami(options=UmamiConfig(host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
 
