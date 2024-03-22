@@ -10,7 +10,6 @@ Project-URL: Homepage, https://github.com/TreyWW/django-umami
 Project-URL: Issues, https://github.com/TreyWW/django-umami/issues
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
-Classifier: Framework :: Django :: 5.0.0
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: BSD License
 Classifier: Operating System :: OS Independent
