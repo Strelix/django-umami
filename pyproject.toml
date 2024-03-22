@@ -28,7 +28,7 @@ build-backend = 'setuptools.build_meta'
 [project]
 name = "django-umami"
 description = "A django package to connect to umami for tracking actions"
-long_description = "A django package to connect to umami for tracking actions"
+readme = "README.md"
 authors = [
     {name = "Trey", email="trey@strelix.org"}
 ]
