@@ -53,7 +53,9 @@ class Umami:
 
     def check_website_settings(self):
         if not self.options.host_url or not self.options.website_id:
-            return UmamiResponse(False, "You must set the UMAMI_PAGE_URL and UMAMI_WEBSITE_ID variables in django settings.")
+            return UmamiResponse(
+                False, "You must set the UMAMI_PAGE_URL and UMAMI_WEBSITE_ID variables in django settings."
+            )
         return True
 
     def send(self, payload: UmamiPayload):
