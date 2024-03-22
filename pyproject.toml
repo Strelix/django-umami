@@ -1,3 +1,14 @@
+[project]
+name = "django-umami"
+version = "0.0.1"
+authors = [
+    {name = "Trey", email="trey@strelix.org"}
+]
+
+[project.urls]
+Homepage = "https://github.com/TreyWW/django-umami"
+Issues = "https://github.com/TreyWW/django-umami/issues"
+
 [tool.poetry]
 name = "django-ummai"
 version = "0.0.1"
