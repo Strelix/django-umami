@@ -67,9 +67,9 @@ Issues = "https://github.com/TreyWW/django-umami/issues"
 
 [tool.bumpversion]
 current_version = "0.0.2"
-commit = true
+commit = false
 commit_args = "-s"
-tag = true
+tag = false
 tag_name = "v{new_version}"
 allow_dirty = true
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(\\.(?P<dev>post)\\d+\\.dev\\d+)?"
@@ -82,3 +82,8 @@ message = "Version updated from {current_version} to {new_version}"
 
 [[tool.bumpversion.files]]
 filename = "django_umami/__init__.py"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
