@@ -5,6 +5,7 @@ from django_umami.utils import get_setting
 
 import requests
 
+
 @dataclass
 class UmamiResponse:
     success: bool

@@ -6,8 +6,7 @@ django_umami.core.umami.options.set_website_id("123456")
 
 
 @django_umami.decorators.track("someone went to django view!")
-def django_view(request):
-    ...
+def django_view(request): ...
 
 
 def my_function():
@@ -15,17 +14,14 @@ def my_function():
 
     data = django_umami.core.UmamiEventData(
         hostname="example.com",
-        language = "en-GB",
-        referrer = "",
-        screen = "1920x1080",
-        title = "abc",
-        url = "/my_event",
-        name = "My Custom Event"
+        language="en-GB",
+        referrer="",
+        screen="1920x1080",
+        title="abc",
+        url="/my_event",
+        name="My Custom Event",
     )
 
     django_umami.core.umami.track(data)
 
-    django_umami.core.umami.track({
-        "name": "My Custom Event",
-        "url": "/my_page/123"
-    })
+    django_umami.core.umami.track({"name": "My Custom Event", "url": "/my_page/123"})

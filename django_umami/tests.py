@@ -11,8 +11,8 @@ class UmamiTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         # Mock settings attributes
-        settings.UMAMI_PAGE_URL = 'https://example.com'
-        settings.UMAMI_WEBSITE_ID = '123456'
+        settings.UMAMI_PAGE_URL = "https://example.com"
+        settings.UMAMI_WEBSITE_ID = "123456"
 
     @classmethod
     def tearDownClass(cls):
@@ -23,42 +23,38 @@ class UmamiTestCase(TestCase):
         self.umami = Umami(options=self.umami_config)
 
     def test_umami_config(self):
-        self.assertEqual(self.umami_config.host_url, 'https://example.com')
-        self.assertEqual(self.umami_config.website_id, '123456')
+        self.assertEqual(self.umami_config.host_url, "https://example.com")
+        self.assertEqual(self.umami_config.website_id, "123456")
 
     def test_umami_send(self):
-        with patch('requests.post') as mocked_post:
+        with patch("requests.post") as mocked_post:
             mocked_post.return_value.status_code = 200
 
-            payload = UmamiPayload(website='123456', data={'name': 'test_event'})
+            payload = UmamiPayload(website="123456", data={"name": "test_event"})
             response = self.umami.send(payload)
 
             mocked_post.assert_called_once()
             self.assertEqual(response.status_code, 200)
 
     def test_umami_track_string_event(self):
-        with patch.object(self.umami, 'send') as mocked_send:
+        with patch.object(self.umami, "send") as mocked_send:
             mocked_send.return_value.status_code = 200
 
             self.umami.track("test_event")
 
-            mocked_send.assert_called_once_with(
-                payload=UmamiPayload(website='123456', data={'name': 'test_event'})
-            )
+            mocked_send.assert_called_once_with(payload=UmamiPayload(website="123456", data={"name": "test_event"}))
 
     def test_umami_track_dict_event(self):
-        with patch.object(self.umami, 'send') as mocked_send:
+        with patch.object(self.umami, "send") as mocked_send:
             mocked_send.return_value.status_code = 200
 
-            event_data = UmamiEventData(name='test_event', url='/test-url')
+            event_data = UmamiEventData(name="test_event", url="/test-url")
             self.umami.track(event_data)
 
-            mocked_send.assert_called_once_with(
-                payload=UmamiPayload(website='123456', data=event_data)
-            )
+            mocked_send.assert_called_once_with(payload=UmamiPayload(website="123456", data=event_data))
 
     def test_umami_track_invalid_event(self):
-        with patch.object(self.umami, 'send') as mocked_send:
+        with patch.object(self.umami, "send") as mocked_send:
             mocked_send.return_value.status_code = 200
 
             self.umami.track(123)
@@ -66,5 +62,5 @@ class UmamiTestCase(TestCase):
             mocked_send.assert_not_called()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

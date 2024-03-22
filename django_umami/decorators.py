@@ -9,5 +9,7 @@ def track(event_name: str, event_data: UmamiEventData = None):
         def wrapper(*args, **kwargs):
             umami.track(event_name, event_data)
             return func(*args, **kwargs)
+
         return wrapper
+
     return decorator
