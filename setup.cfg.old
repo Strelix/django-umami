@@ -1,7 +1,7 @@
 [metadata]
 name = django-umami
 version = 0.0.2
-description =
+description = A django package to connect to umami for tracking actions
 long_description = A django package to connect to umami for tracking actions
 url = https://github.com/TreyWW/django-umami
 author = TreyWW
