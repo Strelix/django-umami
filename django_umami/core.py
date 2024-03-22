@@ -1,14 +1,9 @@
-import json
-import sys
-from dataclasses import dataclass, asdict
-from typing import Optional, Dict, Literal, TypedDict, NotRequired
+from dataclasses import dataclass
+from typing import Optional, TypedDict, NotRequired
 
 import requests
 
 from django.conf import settings
-
-MAIN_PAGE_URL = getattr(settings, "UMAMI_PAGE_URL")
-MAIN_WEBSITE_ID = getattr(settings, "UMAMI_WEBSITE_ID")
 
 
 @dataclass
@@ -21,6 +16,12 @@ class UmamiResponse:
 class UmamiConfig:
     host_url: str
     website_id: str
+
+    def set_host_url(self, host_url: str):
+        self.host_url = host_url
+
+    def set_website_id(self, website_id: str):
+        self.website_id = website_id
 
 
 class UmamiEventData(TypedDict):
@@ -67,30 +68,53 @@ class Umami:
                 payload.data = event_data
 
             return self.send(payload=payload)
+        elif isinstance(event, dict):
+            return self.send(payload=UmamiPayload(website=website_id, data=event))
+        else:
+            return UmamiResponse(success=False, message="Invalid event data")
 
-        return self.send(payload=UmamiPayload(website=website_id, data=event))
 
+try:
+    MAIN_PAGE_URL = getattr(settings, "UMAMI_PAGE_URL")
+    MAIN_WEBSITE_ID = getattr(settings, "UMAMI_WEBSITE_ID")
+except AttributeError:
+    MAIN_PAGE_URL = None
+    MAIN_WEBSITE_ID = None
 
 umami = Umami(options=UmamiConfig(host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
 
 """
 Usage:
 
-from django_umami import main
+import django_umami.core
+import django_umami.decorators
 
-data = main.UmamiEventData(
-    hostname
-    language="en-GB" # optional
-    referrer="" # optional
-    screen="1920x1080" # optional
-    title="abc" # optional
-    url="/myevent" # optional
-    name="My Custom Event" # optional
-)
+django_umami.core.umami.options.set_host_url("https://example.com")
+django_umami.core.umami.options.set_website_id("123456")
 
-main.umami.track(data)
 
-# or you can just send with an event name
+@django_umami.decorators.track("someone went to django view!")
+def django_view(request):
+    ...
 
-main.umami.track("My Custom Event")
+
+def my_function():
+    django_umami.core.umami.track("someone went to my function!")
+
+    data = django_umami.core.UmamiEventData(
+        hostname="example.com",
+        language = "en-GB",
+        referrer = "",
+        screen = "1920x1080",
+        title = "abc",
+        url = "/my_event",
+        name = "My Custom Event"
+    )
+    
+    django_umami.core.umami.track(data)
+    
+    django_umami.core.umami.track({
+        "name": "My Custom Event",
+        "url": "/my_page/123"
+    })
 """
