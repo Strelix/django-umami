@@ -1,9 +1,23 @@
 [project]
 name = "django-umami"
-version = "0.0.1"
+description = "A django package to connect to umami for tracking actions"
 authors = [
     {name = "Trey", email="trey@strelix.org"}
 ]
+requires-python = ">=3.10"
+
+dynamic = [
+    "version",
+    "classifiers",
+    "license"
+]
+
+dependencies = [
+    "Django>=3.2"
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "django_umami.__version__"}
 
 [project.urls]
 Homepage = "https://github.com/TreyWW/django-umami"
@@ -18,13 +32,10 @@ authors = ["TreyWW"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-django = "^5.0.2"
 requests = "^2.31.0"
-black = "^24.3.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.3.0"
-djlint = "^1.34.1"
 coverage = "^7.4.4"
 types-requests = "^2.31.0.20240311"
 
@@ -32,5 +43,5 @@ types-requests = "^2.31.0.20240311"
 line-length = 120
 
 [build-system]
-requires = ['setuptools>=40.8.0']
+requires = ['setuptools>=40.8.0', 'django>=3.2']
 build-backend = 'setuptools.build_meta'

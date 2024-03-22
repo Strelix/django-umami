@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 from typing import Optional, TypedDict, NotRequired
 
+from django_umami.utils import get_setting
+
 import requests
-
-from django.conf import settings
-
 
 @dataclass
 class UmamiResponse:
@@ -75,8 +74,8 @@ class Umami:
 
 
 try:
-    MAIN_PAGE_URL = getattr(settings, "UMAMI_PAGE_URL")
-    MAIN_WEBSITE_ID = getattr(settings, "UMAMI_WEBSITE_ID")
+    MAIN_PAGE_URL = get_setting("UMAMI_PAGE_URL", "")
+    MAIN_WEBSITE_ID = get_setting("UMAMI_WEBSITE_ID", "")
 except AttributeError:
     MAIN_PAGE_URL = None
     MAIN_WEBSITE_ID = None
