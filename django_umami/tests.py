@@ -13,13 +13,16 @@ class UmamiTestCase(TestCase):
         # Mock settings attributes
         settings.UMAMI_PAGE_URL = "https://example.com"
         settings.UMAMI_WEBSITE_ID = "123456"
+        settings.UMAMI_ENABLED = True
 
     @classmethod
     def tearDownClass(cls):
         pass
 
     def setUp(self):
-        self.umami_config = UmamiConfig(host_url=settings.UMAMI_PAGE_URL, website_id=settings.UMAMI_WEBSITE_ID)
+        self.umami_config = UmamiConfig(
+            host_url=settings.UMAMI_PAGE_URL, website_id=settings.UMAMI_WEBSITE_ID, enabled=settings.UMAMI_ENABLED
+        )
         self.umami = Umami(options=self.umami_config)
 
     def test_umami_config(self):

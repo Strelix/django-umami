@@ -14,8 +14,12 @@ class UmamiResponse:
 
 @dataclass
 class UmamiConfig:
+    enabled: bool
     host_url: str
     website_id: str
+
+    def set_enabled(self, enabled: bool):
+        self.enabled = enabled
 
     def set_host_url(self, host_url: str):
         self.host_url = host_url
@@ -52,6 +56,8 @@ class Umami:
     options: UmamiConfig
 
     def check_website_settings(self):
+        if not self.options.enabled:
+            return UmamiResponse(False, "Tracking is disabled.")
         if not self.options.host_url or not self.options.website_id:
             print(
                 "Failed to send event to umami. Please set both UMAMI_PAGE_URL and UMAMI_WEBSITE_ID vars.", flush=True
@@ -89,8 +95,9 @@ class Umami:
 
 MAIN_PAGE_URL = get_setting("UMAMI_PAGE_URL", "")
 MAIN_WEBSITE_ID = get_setting("UMAMI_WEBSITE_ID", "")
+ENABLED = get_setting("UMAMI_TRACKING_ENABLED", False)
 
-umami = Umami(options=UmamiConfig(host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
+umami = Umami(options=UmamiConfig(enabled=ENABLED, host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
 
 """
 Usage:
