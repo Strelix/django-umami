@@ -31,8 +31,8 @@ def track_visit(event_data: Optional[UmamiEventData] = None):
             )
 
             new_event_data.update(
-                {k: v for k, v in data.items() if k not in new_event_data}
-            )  # type: ignore[typeddict-item]
+                {k: v for k, v in data.items() if k not in new_event_data}  # type: ignore[typeddict-item]
+            )
 
             umami.track(new_event_data)
             return func(request, *args, **kwargs)
