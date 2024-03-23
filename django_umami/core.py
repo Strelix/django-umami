@@ -53,7 +53,6 @@ class UmamiPayload:
     def dict(self):
         data = {"website": self.website}
         if self.data:
-            print("has data")
             data |= self.data
         return data
 
@@ -86,6 +85,10 @@ class Umami:
         if self.options.session:
             return self.options.session.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
         return requests.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
+
+    def track_event_name(self, event_name: str):
+        payload = UmamiPayload(website=self.options.website_id, data={"name": event_name})
+        return self.send(payload=payload)
 
     def track(self, event: UmamiEventData | str, event_data=None):
         website_id = self.options.website_id
