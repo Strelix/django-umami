@@ -17,6 +17,13 @@ class UmamiConfig:
     enabled: bool
     host_url: str
     website_id: str
+    session: Optional[requests.Session] = None
+
+    def create_session(self):
+        self.session = requests.Session()
+
+    def close_session(self):
+        self.session.close()
 
     def set_enabled(self, enabled: bool):
         self.enabled = enabled
@@ -76,6 +83,8 @@ class Umami:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
         }
         print(f"Tracking data: \n {data}")
+        if self.options.session:
+            return self.options.session.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
         return requests.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
 
     def track(self, event: UmamiEventData | str, event_data=None):
@@ -107,7 +116,7 @@ import django_umami.decorators
 
 django_umami.core.umami.options.set_host_url("https://example.com")
 django_umami.core.umami.options.set_website_id("123456")
-
+django_umami.core.umami.options.create_session() # This allows requests to be bundled in one session allowing for up to 10x faster requests
 
 @django_umami.decorators.track("someone went to django view!")
 def django_view(request):
