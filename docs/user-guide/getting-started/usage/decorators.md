@@ -8,7 +8,8 @@
             | PARAMETER               | DESCRIPTION                              | REQUIRED                  |
             |-------------------------|------------------------------------------|---------------------------|
             | event  (string)         | The text of the event you'd like to send | :fontawesome-solid-check: |
-            | event_data ([UmamiEventData]()) | The data of the event | :fontawesome-solid-x:     |
+            | event_data ([UmamiEventData](dataclasses.md#dataclass-umamieventdata-source)) | The data of the event |:fontawesome-solid-x:|
+
         === "Example"
             !!! example
                 ```python
@@ -24,7 +25,7 @@
         === "Definition"
             | PARAMETER                   | DESCRIPTION           | REQUIRED                  |
             |-----------------------------|-----------------------|---------------------------|
-            | event  ([UmamiEventData]()) | The data of the event | :fontawesome-solid-check: |
+            | event  ([UmamiEventData](dataclasses.md#dataclass-umamieventdata-source)) | The data of the event|:fontawesome-solid-check: |
         === "Example"
             !!! example
                 ```python
@@ -42,7 +43,7 @@
     === "Definition"
         | PARAMETER                   | DESCRIPTION           | REQUIRED                  |
         |-----------------------------|-----------------------|---------------------------|
-        | event_data  ([UmamiEventData]()) | The data of the event | :fontawesome-solid-x: |
+        | event_data  ([UmamiEventData](dataclasses.md#dataclass-umamieventdata-source)) | The data of the event |:fontawesome-solid-x: |
     === "Example"
         !!! example
             ```python

@@ -48,7 +48,7 @@
     === "Definitions"
         | PARAMETER | DESCRIPTION      | REQUIRED                  |
         |-----------|------------------|---------------------------|
-        | payload  _([UmamiPayload]())_ |  | :fontawesome-solid-check: |
+        | payload  _([UmamiPayload](dataclasses.md#dataclass-umamipayload-source))_ |  | :fontawesome-solid-check: |
     === "Example"
         ```python
         from django_umami.core import umami

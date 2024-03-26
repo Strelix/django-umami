@@ -1,6 +1,17 @@
 # Settings
 
 To use django-umami efficiently, it's best to configure it exactly to your needs, right!
+To do this you can use either use environment variables or manually call the methods.
+
+## Using environment variables
+
+```dotenv title=".env"
+UMAMI_PAGE_URL=https://mysite.com
+UMAMI_WEBSITE_ID=1234-1234-1234
+UMAMI_TRACKING_ENABLED=True
+```
+
+## Using umami object
 
 !!! tip
 
@@ -24,7 +35,7 @@ To use django-umami efficiently, it's best to configure it exactly to your needs
         umami.options...
         ```
 
-## {==Method==} - Set Host URL
+### {==Method==} - Set Host URL
 
 !!! abstract "Set Host URL"
     === "Description"
@@ -42,7 +53,7 @@ To use django-umami efficiently, it's best to configure it exactly to your needs
         ```
 
 
-## {==Method==} - Set Website ID
+### {==Method==} - Set Website ID
 
 !!! abstract "Set Website ID"
     === "Description"
@@ -59,7 +70,7 @@ To use django-umami efficiently, it's best to configure it exactly to your needs
         umami.options.set_website_id("123456")
         ```
 
-## {==Method==} Create Session
+### {==Method==} - Create Session
 
 !!! tip "Using Sessions"
     === "Description"

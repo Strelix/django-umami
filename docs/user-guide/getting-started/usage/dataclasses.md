@@ -32,7 +32,7 @@
         | set_website_id | website_id (string) | Sets the value of website_id to whatever you pass in. This will globally change the website ID for all future calls.                           |
 
 
-## {==Dataclass==} - UmamiEventData <sub><sup>([Source](https://github.com/TreyWW/django-umami/blob/master/django_umami/core.py#L16))</sup></sub>
+## {==Dataclass==} - UmamiEventData <sub><sup>([Source](https://github.com/TreyWW/django-umami/blob/master/django_umami/core.py#L38))</sup></sub>
 
 ??? abstract "Class - UmamiConfig"
     | PARAMETER | DATA TYPE | EXAMPLE                     | REQUIRED              |
@@ -45,7 +45,7 @@
     | url       | string    | "/page1/blob/               | :fontawesome-solid-x: |
     | name      | string    | "Someone visited my site!?" | :fontawesome-solid-x: |
 
-## {==Dataclass==} - UmamiPayload <sub><sup>([Source](https://github.com/TreyWW/django-umami/blob/master/django_umami/core.py#L16))</sup></sub>
+## {==Dataclass==} - UmamiPayload <sub><sup>([Source](https://github.com/TreyWW/django-umami/blob/master/django_umami/core.py#L49))</sup></sub>
 
 ??? abstract "Class - UmamiPayload"
     === "Definition"
@@ -61,11 +61,14 @@
         payload = {"website": "xyz"}
         ```
 
+## {==Main Class==} - Umami <sub><sup>([Source](https://github.com/TreyWW/django-umami/blob/master/django_umami/core.py#L61))</sup></sub>
+
+
 ??? abstract "Main Class - Umami"
     === "Definition"
         | PARAMETER | DATA TYPE       | EXAMPLE                | REQUIRED                  |
         |-----------|-----------------|------------------------|---------------------------|
-        | options   | [UmamiConfig]() | {"enabled": True, ...} | :fontawesome-solid-check: |
+        | options   | [UmamiConfig](#dataclass-umamiconfig-source) | {"enabled": True, ...} | :fontawesome-solid-check: |
     === "Methods"
         | NAME                   | INFO                                                        | RETURNS       |
         |------------------------|-------------------------------------------------------------|---------------|
@@ -77,6 +80,5 @@
         ```python
         import django_umamo.core
         
-        payload = django_umami.core.UmamiPayload(website="xyz")
-        payload = {"website": "xyz"}
+        django_umami.core.umami.check_website_settings()
         ```
