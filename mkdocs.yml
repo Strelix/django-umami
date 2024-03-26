@@ -74,10 +74,10 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-plugins:
-  - git-committers:
-      repository: treyww/django-umami
-      branch: master
+#plugins:
+#  - git-committers:
+#      repository: treyww/django-umami
+#      branch: master
 
 repo_name: django-umami
 repo_url: https://github.com/TreyWW/django-umami
