@@ -111,5 +111,5 @@ nav:
 extra:
   analytics:
     provider: custom
-    property: "https://site.com/script.js"
-    id: "abcdef"
+    property: !ENV UMAMI_PAGE_URL
+    id: !ENV UMAMI_WEBSITE_ID
