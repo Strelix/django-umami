@@ -82,6 +82,32 @@ plugins:
 repo_name: django-umami
 repo_url: https://github.com/TreyWW/django-umami
 
+nav:
+  - Django Umami:
+      - index.md
+  - User Guide:
+      - user-guide/getting-started/index.md
+      - Installation: user-guide/getting-started/installation.md
+      - Settings: user-guide/getting-started/settings.md
+      - Usage:
+          - Core Usage: user-guide/getting-started/usage/core.md
+          - Dataclasses: user-guide/getting-started/usage/dataclasses.md
+          - Decorator Usage: user-guide/getting-started/usage/decorators.md
+  - Contributing:
+      - contributing/index.md
+      - Setup project: contributing/setup.md
+      - Style guide: contributing/style-guide.md
+      - Github Issues: contributing/gh-issues.md
+      - Ask for help: contributing/ask.md
+      - Writing Documentation: contributing/writing-documentation.md
+      - Translations: contributing/translations.md
+      - Github Project Board: contributing/gh-board.md
+      - Motivation: contributing/motivation.md
+      - Development Progression: contributing/development-progression.md
+      - Taking on a lead position: contributing/lead-position.md
+  - Changelog:
+      - changelog.md
+
 extra:
   analytics:
     provider: custom
