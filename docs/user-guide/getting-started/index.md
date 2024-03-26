@@ -30,4 +30,4 @@ def myview(request):
 
 - [Installation](installation.md)
 - [Settings](settings.md)
-- [Usage](usage.md)
+- [Usage](usage/core.md)

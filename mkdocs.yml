@@ -38,15 +38,15 @@ theme:
       primary: indigo
       accent: indigo
       toggle:
-        icon: material/toggle-switch
+        icon: material/toggle-switch-off
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       accent: indigo
       toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -69,6 +69,7 @@ markdown_extensions:
   - attr_list
   - abbr
   - toc
+  - md_in_html
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg

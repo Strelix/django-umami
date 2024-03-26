@@ -1,2 +1,1 @@
-# Changelog / Release Notes
-
+# Changelog
