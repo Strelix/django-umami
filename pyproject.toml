@@ -17,6 +17,12 @@ bump-my-version = "^0.19.3"
 black = "^24.3.0"
 coverage = "^7.4.4"
 
+
+[tool.poetry.group.mkdocs.dependencies]
+mkdocs-git-committers-plugin-2 = "^2.3.0"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.15"
+
 [tool.black]
 line-length = 120
 
