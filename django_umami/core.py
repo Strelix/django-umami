@@ -5,6 +5,10 @@ from django_umami.utils import get_setting
 
 import requests
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 @dataclass
 class UmamiResponse:
@@ -65,8 +69,8 @@ class Umami:
         if not self.options.enabled:
             return UmamiResponse(False, "Tracking is disabled.")
         if not self.options.host_url or not self.options.website_id:
-            print(
-                "Failed to send event to umami. Please set both UMAMI_PAGE_URL and UMAMI_WEBSITE_ID vars.", flush=True
+            logger.critical(
+                "Failed to send event to umami. Please set both UMAMI_PAGE_URL and UMAMI_WEBSITE_ID vars."
             )
             return UmamiResponse(
                 False, "You must set the UMAMI_PAGE_URL and UMAMI_WEBSITE_ID variables in django settings."
@@ -81,9 +85,11 @@ class Umami:
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
         }
-        print(f"Tracking data: \n {data}")
+
         if self.options.session:
+            logger.info("Sending event to umami using session")
             return self.options.session.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
+        logger.info("Sending event to umami with no session")
         return requests.post(url=f"{self.options.host_url}/api/send", json=data, headers=headers)
 
     def track_event_name(self, event_name: str):
@@ -108,6 +114,14 @@ class Umami:
 MAIN_PAGE_URL = get_setting("UMAMI_PAGE_URL", "")
 MAIN_WEBSITE_ID = get_setting("UMAMI_WEBSITE_ID", "")
 ENABLED = get_setting("UMAMI_TRACKING_ENABLED", False)
+
+if not MAIN_PAGE_URL or not MAIN_WEBSITE_ID:
+    logger.warning(
+        "Either one of UMAMI_PAGE_URL or UMAMI_WEBSITE_ID was not set in your environment variables. Make sure to set it manually!"
+    )
+
+if not ENABLED:
+    logger.info("Django-Umami is disabled as the UMAMI_TRACKING_ENABLED environment variable is set to False.")
 
 umami = Umami(options=UmamiConfig(enabled=ENABLED, host_url=MAIN_PAGE_URL, website_id=MAIN_WEBSITE_ID))
 
