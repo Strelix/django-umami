@@ -3,8 +3,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-UMAMI_PAGE_URL = "https://test.strelix.org"
-UMAMI_WEBSITE_ID = "xxxxxxxxxxxxxxxx"
+# UMAMI_PAGE_URL = "https://test.strelix.org"
+# UMAMI_WEBSITE_ID = "xxxxxxxxxxxxxxxx"
 
 SECURITY_KEY = "django_umami"
 
