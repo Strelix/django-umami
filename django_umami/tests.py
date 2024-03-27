@@ -3,10 +3,11 @@ from unittest.mock import patch
 
 from django.conf import settings
 from django.test import TestCase
-from django_umami.core import Umami, UmamiConfig, UmamiEventData, UmamiPayload
+from django_umami.core import Umami, UmamiConfig,UmamiResponse, UmamiEventData, UmamiPayload, umami
+from django_umami.decorators import track, track_visit
 
 
-class UmamiTestCase(TestCase):
+class UmamiTests(TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -60,9 +61,12 @@ class UmamiTestCase(TestCase):
         with patch.object(self.umami, "send") as mocked_send:
             mocked_send.return_value.status_code = 200
 
-            self.umami.track(123)
+            res = self.umami.track(123)
 
             mocked_send.assert_not_called()
+
+            # check if equals UmamiResponse(success=False, message="Invalid event data")
+            self.assertEqual(res, UmamiResponse(False, "Invalid event data"))
 
 
 if __name__ == "__main__":
