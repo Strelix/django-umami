@@ -42,6 +42,7 @@ jobs:
           fi
           
           mike deploy --push --update-aliases $NEW_VERSION latest
+      - run: mkdocs gh-deploy --force
         env:
           UMAMI_PAGE_URL: ${{ secrets.UMAMI_PAGE_URL }}
           UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
