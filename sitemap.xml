@@ -2,97 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.strelix.org/django-umami/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/changelog/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/ask/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/development-progression/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/gh-board/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/gh-issues/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/lead-position/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/motivation/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/setup/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/style-guide/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/translations/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/contributing/writing-documentation/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/installation/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/settings/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/usage/core/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/usage/dataclasses/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.strelix.org/django-umami/user-guide/getting-started/usage/decorators/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <lastmod>2024-03-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
