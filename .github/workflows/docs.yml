@@ -3,8 +3,15 @@ on:
   push:
     branches:
       - master
+
+# only run one build doc workflow at a time, cancel any running ones
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,9 +31,16 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - run: pip install mike
       - run: | 
-          pip install mkdocs-material mkdocs-git-committers-plugin-2
-      - run: mkdocs gh-deploy --force
+          git fetch origin gh-pages --depth=1
+          
+          if [ -z ${{ github.event.release.tag_name }}]; then
+            export NEW_VERSION=main
+          else
+            export NEW_VERSION=${{ github.event.release.tag_name }}
+          
+          mike deploy --push --update-aliases $NEW_VERSION latest
         env:
           UMAMI_PAGE_URL: ${{ secrets.UMAMI_PAGE_URL }}
           UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
