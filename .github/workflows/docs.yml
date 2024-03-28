@@ -39,6 +39,7 @@ jobs:
             export NEW_VERSION=main
           else
             export NEW_VERSION=${{ github.event.release.tag_name }}
+          fi
           
           mike deploy --push --update-aliases $NEW_VERSION latest
         env:
