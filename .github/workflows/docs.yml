@@ -31,7 +31,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mike
+      - run: pip install mkdocs-material mkdocs-git-committers-plugin-2 mike
       - run: | 
           git fetch origin gh-pages --depth=1
           
