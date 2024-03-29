@@ -46,9 +46,6 @@ class UmamiConfig:
     def set_website_id(self, website_id: str):
         self.website_id = website_id
 
-    def add_filter_page(self, page: str):
-        self.filter_pages.append(page)
-
 
 class UmamiEventData(TypedDict):
     hostname: NotRequired[str]
