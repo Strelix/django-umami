@@ -93,6 +93,7 @@ nav:
           - Core Usage: user-guide/getting-started/usage/core.md
           - Dataclasses: user-guide/getting-started/usage/dataclasses.md
           - Decorator Usage: user-guide/getting-started/usage/decorators.md
+          - Middleware: user-guide/getting-started/usage/middleware.md
   - Contributing:
       - contributing/index.md
       - Setup project: contributing/setup.md

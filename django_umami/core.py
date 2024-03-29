@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import Optional, TypedDict, NotRequired
+from dataclasses import dataclass, field
+from typing import Optional, TypedDict, NotRequired, List
 
 from django_umami.utils import get_setting
 
@@ -21,7 +21,15 @@ class UmamiConfig:
     enabled: bool
     host_url: str
     website_id: str
+    filter_page_paths: Optional[List[str]] = field(default_factory=list)
+    filter_page_url_names: Optional[List[str]] = field(default_factory=list)
     session: Optional[requests.Session] = None
+    filter_admin_pages: bool = False
+    filter_superusers: bool = True
+    filter_htmx: bool = False
+    filter_anonymous: bool = False
+    filter_media: bool = True
+    filter_static: bool = True
 
     def create_session(self):
         self.session = requests.Session()
@@ -37,6 +45,9 @@ class UmamiConfig:
 
     def set_website_id(self, website_id: str):
         self.website_id = website_id
+
+    def add_filter_page(self, page: str):
+        self.filter_pages.append(page)
 
 
 class UmamiEventData(TypedDict):
