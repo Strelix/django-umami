@@ -73,13 +73,13 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "bump-my-version"
-version = "0.19.3"
+version = "0.20.0"
 description = "Version bump your Python project"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "bump-my-version-0.19.3.tar.gz", hash = "sha256:f1c3f686bbac2b9de0fd883ca327167b66e67189e9246b8978af48b43462fdbb"},
-    {file = "bump_my_version-0.19.3-py3-none-any.whl", hash = "sha256:778da1333ce5ee7dee3dcd119a7fed04c4294ade20cc04c087c10465bf534ee6"},
+    {file = "bump-my-version-0.20.0.tar.gz", hash = "sha256:9528943fdd577518608de54f32b28d81f6895d09de6eb8f8d9acf9d10c4d5de7"},
+    {file = "bump_my_version-0.20.0-py3-none-any.whl", hash = "sha256:886dd80f932dc9a231fc60958d208a8f9767e5a983af30a041537f5b14b72c8f"},
 ]
 
 [package.dependencies]
@@ -94,7 +94,7 @@ tomlkit = "*"
 [package.extras]
 dev = ["generate-changelog (>=0.7.6)", "git-fame (>=1.12.2)", "pip-tools", "pre-commit"]
 docs = ["black", "markdown-customblocks", "mdx-truly-sane-lists", "mkdocs", "mkdocs-click", "mkdocs-drawio", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkdocs-git-committers-plugin", "mkdocs-git-revision-date-localized-plugin", "mkdocs-include-markdown-plugin", "mkdocs-literate-nav", "mkdocs-material", "mkdocstrings[python]", "python-frontmatter"]
-test = ["coverage", "pre-commit", "pytest", "pytest-cov", "pytest-mock"]
+test = ["coverage", "freezegun", "pre-commit", "pytest", "pytest-cov", "pytest-mock", "pytest-sugar"]
 
 [[package]]
 name = "certifi"
@@ -1281,4 +1281,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<4.0"
-content-hash = "0b4791d68c129f52a4c9a0bc90c0642d14132ce35211147145ab7af74b606cbd"
+content-hash = "c36cb1ca5907673eb3a6ef1733edd2048773fab1aa26de76fe868f3d9d5d9e2d"
