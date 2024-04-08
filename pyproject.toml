@@ -9,7 +9,7 @@ authors = ["TreyWW"]
 python = ">=3.10,<4.0"
 requests = "^2.31.0"
 types-requests = "^2.31.0.20240311"
-typing_extensions = "^4.10.0"
+typing_extensions = "^4.11.0"
 bump-my-version = "^0.19.3"
 
 
