@@ -20,7 +20,7 @@ coverage = "^7.4.4"
 
 [tool.poetry.group.mkdocs.dependencies]
 mkdocs = "^1.5.3"
-mkdocs-material = "^9.5.15"
+mkdocs-material = "^9.5.20"
 mike = "2.0.0"
 
 [tool.black]
